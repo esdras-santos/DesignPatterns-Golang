@@ -1,22 +1,18 @@
 package main
 
-import (
-	// "fmt"
-	// "golangDesignPatterns/patterns"
-)
+import "golangDesignPatterns/patterns"
+
 
 func main(){
 	//singleton
-	//single := patterns.GetSingletonInstance("test")
+	patterns.Singleton()
 	
 	// Bridge
-	//  resource := patterns.InitResource("nabunda")
-	//  view := patterns.InitView(resource)
-	//  fmt.Println(view.Show())
+	patterns.Bridge()
 	
 	// Factory
-	// cat := patterns.AnimalFactory("cat")
-	// fmt.Println(cat.MakeSound())
-	// dog := patterns.AnimalFactory("dog")
-	// fmt.Println(dog.MakeSound())
+	patterns.Factory()
+
+	// Strategy
+	patterns.Strategy()
 }

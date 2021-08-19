@@ -1,6 +1,9 @@
 package patterns
 
-import "sync"
+import (
+	"fmt"
+	"sync"
+)
 
 var once sync.Once
 
@@ -19,4 +22,10 @@ func GetSingletonInstance(text string) singleton {
 	})
 
 	return instance
+}
+
+
+func Singleton(){
+	single := GetSingletonInstance("test")
+	fmt.Println(single.Text)
 }

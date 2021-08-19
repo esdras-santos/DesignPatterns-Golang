@@ -1,11 +1,13 @@
 package patterns
 
-type InterfaceClass interface{
+import "fmt"
+
+type InterfaceClass interface {
 	DogName() string
 }
 
-type AbstractClass struct{
-	IC InterfaceClass
+type AbstractClass struct {
+	IC   InterfaceClass
 	Show func() string
 }
 
@@ -13,36 +15,43 @@ type AbstractClass struct{
 //IMPLEMENTATION
 //////////////////////////////////////////////////////////////////////////////////
 
-//abstract class implementation
-type View struct{
+//abstract class(struct) implementation
+type View struct {
+	//inherite the Abstract class(struct)
 	AbstractClass
 }
 
-func InitView(ic InterfaceClass) View{
-	
+func InitView(ic InterfaceClass) View {
+
 	v := View{}
 	v.IC = ic
-	//abstract class method
-	v.Show = func() string{
-		return "do you take "+v.IC.DogName()+" or leave "+v.IC.DogName()+"?"
+	//abstract class(struct) method(function)
+	v.Show = func() string {
+		return "do you take " + v.IC.DogName() + " or leave " + v.IC.DogName() + "?"
 	}
 
 	return v
 }
 
-//class that implements the InterfaceClass
-type Resource struct{
+//class(struct) that implements the InterfaceClass
+type Resource struct {
 	dogName string
 }
 
-//interface method
-func (r Resource) DogName() string{
+//interface method(function)
+func (r Resource) DogName() string {
 	return r.dogName
 }
 
-func InitResource(dogname string) Resource{
+func InitResource(dogname string) Resource {
 	r := Resource{}
 	r.dogName = dogname
 	InitView(r)
 	return r
-} 
+}
+
+func Bridge() {
+	resource := InitResource("nabunda")
+	view := InitView(resource)
+	fmt.Println(view.Show())
+}
