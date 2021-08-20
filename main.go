@@ -5,14 +5,16 @@ import "golangDesignPatterns/patterns"
 
 func main(){
 	//singleton
-	patterns.Singleton()
+	//patterns.Singleton()
 	
 	// Bridge
-	patterns.Bridge()
+	//patterns.Bridge()
 	
 	// Factory
-	patterns.Factory()
+	//patterns.Factory()
 
 	// Strategy
-	patterns.Strategy()
+	//patterns.Strategy()
+
+	patterns.Observer()
 }
