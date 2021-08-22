@@ -8,7 +8,7 @@ func main(){
 	//patterns.Singleton()
 	
 	// Bridge
-	//patterns.Bridge()
+	patterns.Bridge()
 	
 	// Factory
 	//patterns.Factory()
@@ -29,5 +29,5 @@ func main(){
 	//patterns.Decorator()
 
 	//Composite
-	patterns.CompositePattern()
+	//patterns.CompositePattern()
 }

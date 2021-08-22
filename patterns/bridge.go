@@ -6,9 +6,8 @@ type InterfaceClass interface {
 	DogName() string
 }
 
-type AbstractClass struct {
-	IC   InterfaceClass
-	Show func() string
+type AbstractClass interface {
+	Show()
 }
 
 //////////////////////////////////////////////////////////////////////////////////
@@ -17,21 +16,14 @@ type AbstractClass struct {
 
 //abstract class(struct) implementation
 type View struct {
-	//inherite the Abstract class(struct)
-	AbstractClass
+	IC   InterfaceClass
+	
 }
 
-func InitView(ic InterfaceClass) View {
-
-	v := View{}
-	v.IC = ic
-	//abstract class(struct) method(function)
-	v.Show = func() string {
-		return "do you take " + v.IC.DogName() + " or leave " + v.IC.DogName() + "?"
-	}
-
-	return v
+func (v *View) Show() string{
+	return "you have a dog named " + v.IC.DogName() + " and you'll go the beach, do you take " + v.IC.DogName() + " or leave " + v.IC.DogName() + "?"
 }
+
 
 //class(struct) that implements the InterfaceClass
 type Resource struct {
@@ -43,15 +35,9 @@ func (r Resource) DogName() string {
 	return r.dogName
 }
 
-func InitResource(dogname string) Resource {
-	r := Resource{}
-	r.dogName = dogname
-	InitView(r)
-	return r
-}
 
 func Bridge() {
-	resource := InitResource("nabunda")
-	view := InitView(resource)
+	resource := Resource{"nabunda"}
+	view := View{resource}
 	fmt.Println(view.Show())
 }

@@ -48,8 +48,6 @@ func CompositePattern(){
 	p11.title = "evening tasks"
 	p11.tl = append(p11.tl, &t11,&t21,&t31)
 	
-
-
 	t1 := Task{}
 	t2 := Task{}
 	t3 := Task{}
