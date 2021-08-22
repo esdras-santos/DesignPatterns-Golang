@@ -5,21 +5,7 @@ import (
 	"time"
 )
 
-type IObserver interface {
-	Update()
-}
 
-//implementation of the IObserver interface
-type Obser struct {
-	//instance to comunicate with the observable
-	Obsvbl *Observable
-	
-}
-
-//receive the time variable as a parameter
-func (obs *Obser) Update() {
-	fmt.Printf("\r%s",obs.Obsvbl.GetState().Format("01-02-2006 15:04:05 Mon"))
-}
 
 type IObservable interface {
 	Add(IObserver)
@@ -62,6 +48,23 @@ func (obs *Observable) GetState() time.Time{
 	return obs.Date
 }
 
+
+type IObserver interface {
+	Update()
+}
+
+//implementation of the IObserver interface
+type Obser struct {
+	//instance to comunicate with the observable
+	Obsvbl *Observable
+	
+}
+
+func (obs *Obser) Update() {
+	//get the state of the observable
+	fmt.Printf("\r%s",obs.Obsvbl.GetState().Format("01-02-2006 15:04:05 Mon"))
+}
+
 func Observer(){
 	obs := Observable{}
 
@@ -73,6 +76,7 @@ func Observer(){
 	for {
 		time.Sleep(time.Second)
 		obs.SetState()
+		//notify the subscribers for each 1 second
 		obs.Notify()
 	}
 }

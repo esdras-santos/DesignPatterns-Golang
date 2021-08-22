@@ -16,5 +16,18 @@ func main(){
 	// Strategy
 	//patterns.Strategy()
 
-	patterns.Observer()
+	//Observer
+	//patterns.Observer()
+
+	//Adapter
+	//patterns.AdapterPattern()
+
+	//Proxy
+	//patterns.ProxyPattern()
+
+	//Decorator
+	//patterns.Decorator()
+
+	//Composite
+	patterns.CompositePattern()
 }

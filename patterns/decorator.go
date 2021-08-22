@@ -15,6 +15,9 @@ func (e *Expresso) Cost() int {
 
 //decorator
 type AddonDecorator interface {
+	/* with the cost function in the decorator interface we make that compatible 
+	   with the Bevarage interface
+	*/
 	Cost() int
 	Name() string
 }
